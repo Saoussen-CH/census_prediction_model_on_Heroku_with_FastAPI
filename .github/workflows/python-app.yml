@@ -39,8 +39,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sets up DVC remote
       run: |
-        dvc remote -d s3remote -f ${{ env.DVC_REMOTE_REPOSITORY }}
-        dvc remote default s3remote
+        dvc remote add -d s3remote -f ${{ env.DVC_REMOTE_REPOSITORY }}
         dvc pull
     - name: Lint with flake8
       run: |
