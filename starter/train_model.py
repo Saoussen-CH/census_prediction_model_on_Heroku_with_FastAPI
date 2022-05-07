@@ -8,8 +8,8 @@ import pickle
 import pandas as pd
 import os
 from ml.data import process_data
-from ml.model import train_model, inference, compute_model_metrics, compute_slice_metrics
-
+from ml.model import train_model, inference, compute_model_metrics, compute_model_metrics_slice
+import json
 # Add code to load in the data.
 #filename = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'data', 'census_clean.csv'))
 
@@ -65,3 +65,10 @@ print('Recall:', recall)
 print('F-Beta Score:', fbeta)
 
 
+# Performance slice education
+metrics_education = compute_model_metrics_slice(
+        model, test, encoder, lb, cat_features, "education", "salary"
+    )
+
+with open("./screenshots/slice_output.json", "w") as fp:
+        json.dump(metrics_education, fp)

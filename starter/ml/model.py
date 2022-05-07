@@ -63,44 +63,33 @@ def inference(model, X):
     preds = model.predict(X)
     return preds
 
-def compute_slice_metrics(df,category,model,encoder,binarizer):
-    """
-    Computes model metrics based on data slices
-    
-    Inputs
-    ------
-    df : pd.DataFrame
-         Dataframe containing the cleaned data
-    category : str
-         Dataframe column to slice
-    rf_model: 
-         Random forest model used to perform prediction
-    encoder: OneHotEncoder
-         Trained OneHotEncoder
-    binarizer: LabelBinarizer
-        Trained LabelBinarizer
-     Returns
-     -------
-     predictions : dict
-          Dictionary containing the predictions for each category feature
-    """
 
-    predictions = {}
-    for cat_feature in df[category]:
-        filtered_df = df[df[category] == cat_feature]
+def compute_model_metrics_slice(
+    model, data, encoder, lb, cat_features, sliced_feature, label
+):
 
-        X, y, _, _ = process_data(filtered_df,
-                                  label='salary',
-                                  training=False,
-                                  encoder=encoder,
-                                  lb=binarizer)
+    dict_result = {}
 
-        y_preds = model.predict(X)
+    for i in data[sliced_feature].unique():
+        data_slice = data[data[sliced_feature] == i]
 
-        precision, recall, fbeta = compute_model_metrics(y, y_preds)
-        predictions[cat_feature] = {
-            'precision': precision,
-            'recall': recall,
-            'fbeta': fbeta,
-            'n_row': len(filtered_df)}
-    return predictions
+        X, y, _, _ = process_data(
+            data_slice,
+            categorical_features=cat_features,
+            label="salary",
+            training=False,
+            encoder=encoder,
+            lb=lb,
+        )
+
+        preds = inference(model, X)
+        precision, recall, fbeta = compute_model_metrics(y, preds)
+
+        dict_result[i] = {
+            "precision": precision,
+            "recall": recall,
+            "fbeta": fbeta,
+            "sample": len(y),
+        }
+
+    return {sliced_feature: dict_result}

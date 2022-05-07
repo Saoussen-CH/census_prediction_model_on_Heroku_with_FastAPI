@@ -42,10 +42,9 @@ _Please include the metrics used and your model's performance on those metrics._
 Precision was the primary metric for the model, recall and F-beta scores are also reported.
 
 The scores are as follows:
-* Precision: 0.7850877192982456
-* Recall: 0.6076035302104549
-* F-Beta Score: 0.6850363566781478
-
+* Precision: 0.7601769911504425
+* Recall: 0.5952875952875953
+* F-Beta Score: 0.6677030703458998
 ## Ethical Considerations
 While the data is anonymous it does contain sensitive data about class, occupation, race, country of origin, sex. The predicted output of this model should not be taken with a high degree of confidence without further testing for bias.
 ## Caveats and Recommendations
