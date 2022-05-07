@@ -100,22 +100,22 @@ def test_compute_model_metrics(split_data):
     path_model = "model/model.pkl" 
     model = pickle.load(open(path_model, 'rb'))
 
-    y_train_pred = inference(model, X_train)   
+    ##y_train_pred = inference(model, X_train)   
     y_test_pred = inference(model, X_test)
 
-    precision_train, recall_train, fbeta_train = compute_model_metrics(y_train, y_train_pred)
+    ##precision_train, recall_train, fbeta_train = compute_model_metrics(y_train, y_train_pred)
     precision_test, recall_test, fbeta_test = compute_model_metrics(y_test, y_test_pred)
 
-    assert isinstance(precision_train, float)
+   ## assert isinstance(precision_train, float)
     assert isinstance(precision_test, float)
-    assert isinstance(recall_train, float)
+   ## assert isinstance(recall_train, float)
     assert isinstance(recall_test, float)
-    assert isinstance(fbeta_train, float)
+   ## assert isinstance(fbeta_train, float)
     assert isinstance(fbeta_test, float)
 
-    assert (precision_train<=1) & (precision_train>=0)
+   ## assert (precision_train<=1) & (precision_train>=0)
     assert (precision_test<=1) & (precision_test>=0)
-    assert (recall_train<=1) & (recall_train>=0)
+   ## assert (recall_train<=1) & (recall_train>=0)
     assert (recall_test<=1) & (recall_test>=0)
-    assert (fbeta_train<=1) & (fbeta_train>=0)
+   ## assert (fbeta_train<=1) & (fbeta_train>=0)
     assert (fbeta_test<=1) & (fbeta_test>=0)
