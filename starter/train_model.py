@@ -49,14 +49,14 @@ X_test, y_test, encoder, lb = process_data(
 )
 
 # Train and save a model.
-model = train_model(X_train, y_train)
+model = train_model(X_train[:, :103], y_train)
 filename = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'model', "model.pkl"))
 
 with open(filename, 'wb') as file:
     pickle.dump(model, file)
     
 # Test model and show metrics
-preds = inference(model, X_test)
+preds = inference(model, X_test[:, :103])
 
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
 

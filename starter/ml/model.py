@@ -82,7 +82,7 @@ def compute_model_metrics_slice(
             lb=lb,
         )
 
-        preds = inference(model, X)
+        preds = inference(model, X[:, :103])
         precision, recall, fbeta = compute_model_metrics(y, preds)
 
         dict_result[i] = {
