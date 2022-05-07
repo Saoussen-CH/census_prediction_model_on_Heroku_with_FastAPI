@@ -17,7 +17,7 @@ filename = 'data/census_clean.csv'
 data = pd.read_csv(filename)
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.20)
+train, test = train_test_split(data, test_size=0.20, random_state=42)
 
 cat_features = [
     "workclass",
@@ -29,6 +29,7 @@ cat_features = [
     "sex",
     "native-country",
 ]
+
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
@@ -50,6 +51,7 @@ X_test, y_test, encoder, lb = process_data(
 # Train and save a model.
 model = train_model(X_train, y_train)
 filename = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'model', "model.pkl"))
+
 with open(filename, 'wb') as file:
     pickle.dump(model, file)
     
