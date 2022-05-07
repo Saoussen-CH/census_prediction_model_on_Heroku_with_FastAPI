@@ -101,7 +101,7 @@ def test_compute_model_metrics(split_data):
     model = pickle.load(open(path_model, 'rb'))
 
     ##y_train_pred = inference(model, X_train)   
-    y_test_pred = inference(model, X_test[:, :104])
+    y_test_pred = inference(model, X_test)
 
     ##precision_train, recall_train, fbeta_train = compute_model_metrics(y_train, y_train_pred)
     precision_test, recall_test, fbeta_test = compute_model_metrics(y_test, y_test_pred)
