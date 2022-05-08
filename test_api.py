@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
-from bs4 import BeautifulSoup
+
 
 def test_root():
     with TestClient(app) as client:
