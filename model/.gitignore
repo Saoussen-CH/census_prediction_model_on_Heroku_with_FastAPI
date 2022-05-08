@@ -2,3 +2,4 @@
 /model.pkl
 /LabelBinarizer.pkl
 /OneHotEnoder.pkl
+/OneHotEncoder.pkl
