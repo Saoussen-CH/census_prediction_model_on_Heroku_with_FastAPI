@@ -16,14 +16,20 @@ def test_prediction_negative_prediction():
         response = client.post(
             "/predict",
             json={
+                "age": 39,
                 "workclass": "State-gov",
+                "fnlgt": 77516,
                 "education": "Bachelors",
+                "education-num": 13,
                 "marital-status": "Never-married",
                 "occupation": "Adm-clerical",
                 "relationship": "Not-in-family",
                 "race": "White",
                 "sex": "Male",
-                "native-country": "United-States",
+                "capital-gain": 2174,
+                "capital-loss": 0,
+                "hours-per-week": 40,
+                "native-country": "United-States"
             },
         )
 
