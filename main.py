@@ -44,7 +44,7 @@ def welcome():
 
 
 model = pickle.load(open("model/model.pkl", "rb"))
-encoder = pickle.load(open("model/oneHotEnoder.pkl", "rb"))
+encoder = pickle.load(open("model/OneHotEncoder.pkl", "rb"))
 binarizer = pickle.load(open("model/LabelBinarizer.pkl", "rb"))
 
 @app.post("/predict")
