@@ -35,7 +35,7 @@ X_train, y_train, encoder, lb = process_data(
 )
 
 
-filename = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'model', "OneHotEnoder.pkl"))
+filename = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'model', "OneHotEncoder.pkl"))
 with open(filename, 'wb') as file:
     pickle.dump(encoder, file)
 
