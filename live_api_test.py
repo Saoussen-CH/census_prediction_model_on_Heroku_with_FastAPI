@@ -31,15 +31,14 @@ def test_api_live_get_predictions_inf1():
 
     r = requests.post(app_url, data=json.dumps(test_data), headers=headers)
     assert r.status_code == 200
-    assert (r.json()["predict"][: len(expected_res)]) == expected_res
-    return r.json()["predict"][: len(expected_res)]
+    assert r.json() == {"prediction": {"salary": "<=50K"}}
+    return r.json()["prediction"]
 
 
 def test_api_live_get_predictions_inf2():
     """ Test Fast API predict route with a '>50K' salary prediction result """
     app_url = hekoru_endpoint + "/predict"
 
-    expected_res = "Predicts ['>50K']"
 
     test_data = {
         "age": 40,
@@ -61,8 +60,8 @@ def test_api_live_get_predictions_inf2():
 
     r = requests.post(app_url, data=json.dumps(test_data), headers=headers)
     assert r.status_code == 200
-    assert (r.json()["predict"][: len(expected_res)]) == expected_res
-    return r.json()["predict"][: len(expected_res)]
+    assert r.json() == {"prediction": {"salary": ">50K"}}
+    return r.json()["prediction"]
 
 
 if __name__ == "__main__":
