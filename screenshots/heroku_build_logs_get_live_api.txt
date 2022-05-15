@@ -1,0 +1,10 @@
+2022-05-15T10:48:45.537967+00:00 app[web.1]: INFO:     3.83.108.70:0 - "GET / HTTP/1.1" 200 OK
+2022-05-15T10:48:45.538376+00:00 heroku[router]: at=info method=GET path="/" host=mlopsp3.herokuapp.com request_id=96cdeb97-125e-413d-b0d9-e3e293fc7771 fwd="3.83.108.70" dyno=web.1 connect=0ms service=2ms status=200 bytes=171 protocol=https
+2022-05-15T10:57:09.703057+00:00 heroku[router]: at=info method=GET path="/" host=mlopsp3.herokuapp.com request_id=3b19f803-80a2-4c91-bae1-b9b8c9e47967 fwd="197.27.17.168" dyno=web.1 connect=0ms service=3ms status=200 bytes=171 protocol=https
+2022-05-15T10:57:09.705354+00:00 app[web.1]: INFO:     197.27.17.168:0 - "GET / HTTP/1.1" 200 OK
+2022-05-15T10:57:09.885930+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=mlopsp3.herokuapp.com request_id=9afbe2b2-f1ff-4811-978c-993eeab5cb4e fwd="197.27.17.168" dyno=web.1 connect=0ms service=2ms status=404 bytes=173 protocol=https
+2022-05-15T10:57:09.888378+00:00 app[web.1]: INFO:     197.27.17.168:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+2022-05-15T11:01:40.854457+00:00 app[web.1]: INFO:     197.27.17.168:0 - "POST /predict HTTP/1.1" 200 OK
+2022-05-15T11:01:40.855028+00:00 heroku[router]: at=info method=POST path="/predict" host=mlopsp3.herokuapp.com request_id=07aa4141-6a9e-48a2-967f-e1a815af5585 fwd="197.27.17.168" dyno=web.1 connect=0ms service=37ms status=200 bytes=177 protocol=https
+2022-05-15T11:01:41.328791+00:00 app[web.1]: INFO:     197.27.17.168:0 - "POST /predict HTTP/1.1" 200 OK
+2022-05-15T11:01:41.329181+00:00 heroku[router]: at=info method=POST path="/predict" host=mlopsp3.herokuapp.com request_id=f269e0d4-efd6-4bc3-bf18-dc8a0468b1b0 fwd="197.27.17.168" dyno=web.1 connect=0ms service=22ms status=200 bytes=176 protocol=https
